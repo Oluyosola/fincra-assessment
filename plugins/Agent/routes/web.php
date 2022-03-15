@@ -12,7 +12,7 @@
 
 Route::prefix('agent')->middleware('auth')->group(function (){
     Route::get('/', 'AgentController@index')->name('agent');
-    Route::get('/create', 'AgentController@create')->name('create_agent');
+    Route::get('/create', 'AgentController@create')->name('agent.create');
     Route::post('/add', 'AgentController@add')->name('add_agent');
 
 
