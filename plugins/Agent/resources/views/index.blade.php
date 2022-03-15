@@ -65,8 +65,7 @@
             <table class="table table-borderless table-striped">
                 <thead>
                 <tr>
-                    <th></th>
-                    <th class="min-width-80">@lang('Username')</th>
+                    <th class="min-width-80">@lang('Name')</th>
                     <th class="min-width-100">@lang('Email')</th>
                     <th class="min-width-80">@lang('Phone Number')</th>
                     <th class="min-width-80">@lang('Wallet Balance')</th>
@@ -77,11 +76,25 @@
                     @if (count($agents))
                         @foreach ($agents as $agent)
                             {{-- @include('user.partials.row') --}}
+                            <tr>
                             <td>{{$agent->name}}</td>
                             <td>{{$agent->email}}</td>
                             <td>{{$agent->phone_number}}</td>
                             <td>{{$agent->wallet_balance}}</td>
+                            <td class="text-center align-middle">
+                                <div class="dropdown show d-inline-block">
+                                    <a class="btn btn-icon"
+                                       href="#" role="button" id="dropdownMenuLink"
+                                       data-toggle="dropdown"
+                                       aria-haspopup="true" aria-expanded="false">
+                                        <i class="fas fa-ellipsis-h"></i>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                                        <a href="{{ route('agent.fund-wallet', $agent->id) }}" class="dropdown-item text-gray-500">Fund Wallet
+                                        </a>
 
+                            </td>
+                        </tr>
                         @endforeach
                     @else
                         <tr>

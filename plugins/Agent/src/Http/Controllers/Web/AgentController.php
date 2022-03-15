@@ -35,4 +35,15 @@ class AgentController extends Controller
         return back();
     }
 
+    public function fundWallet(Agent $agent){
+        return view('agent::wallet', compact('agent'));
+
+    }
+    public function addFund(Request $request, Agent $agent){
+
+        $agent->wallet_balance = $request->input('wallet');
+        $agent->update();
+        return back();
+    }
 }
+
