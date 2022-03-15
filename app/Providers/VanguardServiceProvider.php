@@ -25,6 +25,7 @@ class VanguardServiceProvider extends BaseVanguardServiceProvider
             \Vanguard\Support\Plugins\Dashboard\Dashboard::class,
             \Vanguard\Support\Plugins\Users::class,
             \Vanguard\Agent\Agent::class,
+            \Vanguard\Transaction\Transaction::class,
             \Vanguard\UserActivity\UserActivity::class,
             \Vanguard\Support\Plugins\RolesAndPermissions::class,
             \Vanguard\Support\Plugins\Settings::class,

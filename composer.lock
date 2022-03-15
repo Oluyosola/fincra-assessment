@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1a14ab34d5a5318b7ee064e300fbf15d",
+    "content-hash": "f903d6d0cadbb612721ae8faf02edae3",
     "packages": [
         {
             "name": "akaunting/setting",
@@ -5301,7 +5301,7 @@
         },
         {
             "name": "vanguardapp/agent",
-            "version": "dev-main",
+            "version": "dev-master",
             "dist": {
                 "type": "path",
                 "url": "./plugins/Agent",
@@ -5435,6 +5435,35 @@
                 "source": "https://github.com/vanguardapp/plugins/tree/v1.0.0"
             },
             "time": "2019-09-07T16:28:40+00:00"
+        },
+        {
+            "name": "vanguardapp/transaction",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "./plugins/Transaction",
+                "reference": "dcef0e206117d86dd1290c38db3576c7ded75444"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Vanguard\\Transaction\\": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Vanguard\\Transaction\\Tests\\": "tests/"
+                }
+            },
+            "authors": [
+                {
+                    "name": "Milos Stojanovic",
+                    "email": "stojanovic.loshmi@gmail.com"
+                }
+            ],
+            "transport-options": {
+                "relative": true
+            }
         },
         {
             "name": "vlucas/phpdotenv",

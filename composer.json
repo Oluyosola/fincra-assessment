@@ -27,6 +27,10 @@
         {
             "type": "path",
             "url": "./plugins/Agent"
+        },
+        {
+            "type": "path",
+            "url": "./plugins/Transaction"
         }
     ],
     "require": {
@@ -48,6 +52,7 @@
         "vanguardapp/agent": "*",
         "vanguardapp/announcements": "^1.0.0",
         "vanguardapp/plugins": "^1.0.0",
+        "vanguardapp/transaction": "*",
         "webpatser/laravel-countries": "dev-master"
     },
     "require-dev": {
