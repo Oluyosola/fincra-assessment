@@ -16,7 +16,7 @@
 <div class="card">
     <div class="card-body">
 
-        <form action="" method="GET" id="users-form" class="pb-2 mb-3 border-bottom-light">
+        <form action="" method="GET" id="agent-form" class="pb-2 mb-3 border-bottom-light">
             <div class="row my-3 flex-md-row flex-column-reverse">
                 <div class="col-md-4 mt-md-0 mt-2">
                     <div class="input-group custom-search-form">
@@ -66,8 +66,7 @@
                 <thead>
                 <tr>
                     <th></th>
-                    <th class="min-width-80">Username</th>
-                    <th class="min-width-150">@lang('Full Name')</th>
+                    <th class="min-width-80">@lang('Username')</th>
                     <th class="min-width-100">@lang('Email')</th>
                     <th class="min-width-80">@lang('Phone Number')</th>
                     <th class="min-width-80">@lang('Wallet Balance')</th>
@@ -75,15 +74,20 @@
                 </tr>
                 </thead>
                 <tbody>
-                    {{-- @if (count($users))
-                        @foreach ($users as $user)
-                            @include('user.partials.row')
+                    @if (count($agents))
+                        @foreach ($agents as $agent)
+                            {{-- @include('user.partials.row') --}}
+                            <td>{{$agent->name}}</td>
+                            <td>{{$agent->email}}</td>
+                            <td>{{$agent->phone_number}}</td>
+                            <td>{{$agent->wallet_balance}}</td>
+
                         @endforeach
-                    @else --}}
+                    @else
                         <tr>
                             <td colspan="7"><em>@lang('No records found.')</em></td>
                         </tr>
-                    {{-- @endif --}}
+                    @endif
                 </tbody>
             </table>
         </div>
@@ -97,7 +101,7 @@
 @section('scripts')
     <script>
         $("#status").change(function () {
-            $("#users-form").submit();
+            $("#agent-form").submit();
         });
     </script>
 @stop

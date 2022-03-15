@@ -1,7 +1,9 @@
 <?php
 
 namespace Vanguard\Agent\Http\Controllers\Web;
-
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Http\Request;
+use Vanguard\Agent;
 use Vanguard\Http\Controllers\Controller;
 
 class AgentController extends Controller
@@ -13,7 +15,8 @@ class AgentController extends Controller
      */
     public function index()
     {
-        return view('agent::index');
+        $agents = Agent::all();
+        return view('agent::index', compact('agents'));
     }
 
     public function create()
@@ -21,9 +24,15 @@ class AgentController extends Controller
         return view('agent::create');
     }
 
-    public function add()
+    public function add(Request $request)
     {
-        
+        $agent = New Agent();
+        $agent->name = $request->input('name');
+        $agent->email = $request->input('email');
+        $agent->phone_number = $request->input('phone');
+        $agent->password = Hash::make($request->input('password'));
+        $agent->save();
+        return back();
     }
 
 }
