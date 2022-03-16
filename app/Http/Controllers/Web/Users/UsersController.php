@@ -14,7 +14,7 @@ use Vanguard\Repositories\Role\RoleRepository;
 use Vanguard\Repositories\User\UserRepository;
 use Vanguard\Support\Enum\UserStatus;
 use Vanguard\User;
-use Vanguard\Agent;
+use Vanguard\Wallet;
 
 
 /**
@@ -116,14 +116,14 @@ class UsersController extends Controller
             $data['username'] = null;
         }
 
-        // $this->users->create($data);
-        // if (data_get($data, 'role_id') == 3) {
-        //     $agent = new Agent();
-        //     $agent->agent_id = data_get($data, 'id');
-        //     $agent->username = $request->input('username');
-        //     $agent->save();
+        $new_user = $this->users->create($data);
 
-        // }
+        if (data_get($data, 'role_id') == 3) {
+            $wallet = new Wallet();
+            $wallet->agent_id = $new_user->id;
+            $wallet->save();
+
+        }
 
         return redirect()->route('users.index')
             ->withSuccess(__('User created successfully.'));

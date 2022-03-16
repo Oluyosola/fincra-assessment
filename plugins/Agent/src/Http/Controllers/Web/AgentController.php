@@ -3,7 +3,7 @@
 namespace Vanguard\Agent\Http\Controllers\Web;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
-use Vanguard\Agent;
+use Vanguard\Wallet;
 use Vanguard\User;
 use Vanguard\Http\Controllers\Controller;
 
@@ -16,9 +16,9 @@ class AgentController extends Controller
      */
     public function index()
     {
-        $users = User::where('role_id', 3)->get();
-        // $agents = Agent::all();
-        return view('agent::index', compact('users'));
+        $wallet = Wallet::all();
+        $users = User::where('role_id', 3)->with('wallet')->get();
+        return view('agent::index', compact('users', 'wallet'));
     }
 
     public function create()
@@ -26,26 +26,28 @@ class AgentController extends Controller
         return view('agent::create');
     }
 
-    public function add(Request $request)
-    {
-        $agent = New Agent();
-        $agent->name = $request->input('name');
-        $agent->email = $request->input('email');
-        $agent->phone_number = $request->input('phone');
-        $agent->password = Hash::make($request->input('password'));
-        $agent->save();
-        return back();
+    // public function add(Request $request)
+    // {
+    //     $agent = New Agent();
+    //     $agent->name = $request->input('name');
+    //     $agent->email = $request->input('email');
+    //     $agent->phone_number = $request->input('phone');
+    //     $agent->password = Hash::make($request->input('password'));
+    //     $agent->save();
+    //     return back();
+    // }
+
+    public function fundWallet(User $user){
+        return view('agent::wallet', compact('user'));
+
     }
+    public function addFund(Request $request, User $user){
 
-    public function fundWallet(Agent $agent){
-        return view('agent::wallet', compact('agent'));
-
-    }
-    public function addFund(Request $request, Agent $agent){
-
-        $agent->wallet_balance = $agent->wallet_balance + $request->input('wallet');
-        $agent->update();
+        $user->wallet->wallet_balance = $user->wallet->wallet_balance + $request->input('wallet');
+        $user->wallet->update();
+    
         return back();
+    
     }
 }
 

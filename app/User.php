@@ -131,4 +131,8 @@ class User extends Authenticatable implements TwoFactorAuthenticatableContract, 
 
         event(new RequestedPasswordResetEmail($this));
     }
+    public function wallet()
+    {
+        return $this->hasOne(Wallet::class, 'agent_id');
+    }
 }

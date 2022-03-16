@@ -68,7 +68,7 @@
                     <th class="min-width-80">@lang('Name')</th>
                     <th class="min-width-100">@lang('Email')</th>
                     <th class="min-width-80">@lang('Phone Number')</th>
-                    {{-- <th class="min-width-80">@lang('Wallet Balance')</th> --}}
+                    <th class="min-width-80">@lang('Wallet Balance')</th>
                     <th class="text-center min-width-150">@lang('Action')</th>
                 </tr>
                 </thead>
@@ -77,10 +77,10 @@
                         @foreach ($users as $agent)
                             {{-- @include('user.partials.row') --}}
                             <tr>
-                            <td>{{$agent->username}}</td>
+                            <td>{{$agent->last_name. " ". $agent->first_name}}</td>
                             <td>{{$agent->email}}</td>
                             <td>{{$agent->phone}}</td>
-                            {{-- <td>{{$agent->wallet_balance}}</td> --}}
+                            <td>{{$agent->wallet->wallet_balance}}</td>
                             <td class="text-center align-middle">
                                 <div class="dropdown show d-inline-block">
                                     <a class="btn btn-icon"

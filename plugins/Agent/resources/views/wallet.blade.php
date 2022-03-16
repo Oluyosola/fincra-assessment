@@ -12,7 +12,7 @@
 @section('content')
 <div class="container">
 
-    <form action="{{route('agent.fund', $agent->id)}}" method= "POST">    
+    <form action="{{route('agent.fund', $user->id)}}" method= "POST">    
         @csrf
 
     
