@@ -31,6 +31,10 @@
         {
             "type": "path",
             "url": "./plugins/Transaction"
+        },
+        {
+            "type": "path",
+            "url": "./plugins/Dashboard"
         }
     ],
     "require": {
@@ -51,6 +55,7 @@
         "vanguardapp/activity-log": "^1.0.0",
         "vanguardapp/agent": "*",
         "vanguardapp/announcements": "^1.0.0",
+        "vanguardapp/dashboard": "*",
         "vanguardapp/plugins": "^1.0.0",
         "vanguardapp/transaction": "*",
         "webpatser/laravel-countries": "dev-master"

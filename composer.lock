@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f903d6d0cadbb612721ae8faf02edae3",
+    "content-hash": "5c4b798281238affa7d02ec2e9906294",
     "packages": [
         {
             "name": "akaunting/setting",
@@ -5381,6 +5381,35 @@
                 "source": "https://github.com/vanguardapp/announcements/tree/v1.0.2"
             },
             "time": "2019-10-15T21:46:14+00:00"
+        },
+        {
+            "name": "vanguardapp/dashboard",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "./plugins/Dashboard",
+                "reference": "5491e533e97f16f543b1adca2e68d0601dbc22e7"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Vanguard\\Dashboard\\": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Vanguard\\Dashboard\\Tests\\": "tests/"
+                }
+            },
+            "authors": [
+                {
+                    "name": "Milos Stojanovic",
+                    "email": "stojanovic.loshmi@gmail.com"
+                }
+            ],
+            "transport-options": {
+                "relative": true
+            }
         },
         {
             "name": "vanguardapp/plugins",
