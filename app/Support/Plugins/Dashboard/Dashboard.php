@@ -11,7 +11,7 @@ class Dashboard extends Plugin
     {
         return Item::create(__('Dashboard'))
             ->route('dashboard')
-            ->icon('fas fa-home')
+            ->icon('fas fa-home')->permissions('admin.view')
             ->active("/");
     }
 }

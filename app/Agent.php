@@ -10,7 +10,7 @@ class Agent extends Model
 {
     // use Vanguard/HasFactory;
     protected $fillable = [
-        'name',
+        'username',
         'email',
         'phone_number',
         'password',

@@ -17,7 +17,7 @@ class Agent extends Plugin
     {
         return Item::create(__('Agent'))
         ->route('agent')
-        ->icon('fas fa-user')
+        ->icon('fas fa-user')->permissions('admin.view')
         ->active("agent*");    }
 
     /**

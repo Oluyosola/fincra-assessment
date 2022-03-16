@@ -68,19 +68,19 @@
                     <th class="min-width-80">@lang('Name')</th>
                     <th class="min-width-100">@lang('Email')</th>
                     <th class="min-width-80">@lang('Phone Number')</th>
-                    <th class="min-width-80">@lang('Wallet Balance')</th>
+                    {{-- <th class="min-width-80">@lang('Wallet Balance')</th> --}}
                     <th class="text-center min-width-150">@lang('Action')</th>
                 </tr>
                 </thead>
                 <tbody>
-                    @if (count($agents))
-                        @foreach ($agents as $agent)
+                    @if (count($users))
+                        @foreach ($users as $agent)
                             {{-- @include('user.partials.row') --}}
                             <tr>
-                            <td>{{$agent->name}}</td>
+                            <td>{{$agent->username}}</td>
                             <td>{{$agent->email}}</td>
-                            <td>{{$agent->phone_number}}</td>
-                            <td>{{$agent->wallet_balance}}</td>
+                            <td>{{$agent->phone}}</td>
+                            {{-- <td>{{$agent->wallet_balance}}</td> --}}
                             <td class="text-center align-middle">
                                 <div class="dropdown show d-inline-block">
                                     <a class="btn btn-icon"

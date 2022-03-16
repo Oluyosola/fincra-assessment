@@ -4,6 +4,7 @@ namespace Vanguard\Agent\Http\Controllers\Web;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use Vanguard\Agent;
+use Vanguard\User;
 use Vanguard\Http\Controllers\Controller;
 
 class AgentController extends Controller
@@ -15,8 +16,9 @@ class AgentController extends Controller
      */
     public function index()
     {
-        $agents = Agent::all();
-        return view('agent::index', compact('agents'));
+        $users = User::where('role_id', 3)->get();
+        // $agents = Agent::all();
+        return view('agent::index', compact('users'));
     }
 
     public function create()

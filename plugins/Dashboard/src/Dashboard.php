@@ -15,9 +15,11 @@ class Dashboard extends Plugin
      */
     public function sidebar()
     {
+
         return Item::create(__('Agent Dashboard'))
         ->route('agent.dashboard')
-        ->icon('fas fa-user')
+        ->icon('fas fa-user')->permissions('agent.dashboard')
+
         ->active("dashboard*");    
     }
 
