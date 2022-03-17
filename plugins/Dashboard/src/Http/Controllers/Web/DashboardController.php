@@ -49,8 +49,6 @@ class DashboardController extends Controller
 
   public function makeTransfer(Request $request, Agent $agent)
   {
-    // please validate the incoming request (for yosola)
-
     $sender_id = auth()->user()->id;
     switch($request->transaction_type){
       case "wallet transfer":

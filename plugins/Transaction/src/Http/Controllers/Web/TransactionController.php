@@ -15,7 +15,6 @@ class TransactionController extends Controller
      */
     public function index()
     {
-        // $agent = User::where('role_1d', 3)->get();
         $transaction = Transaction::with(['sender', 'agent'])->paginate(10);
         return view('transaction::index', compact('transaction'));
     }

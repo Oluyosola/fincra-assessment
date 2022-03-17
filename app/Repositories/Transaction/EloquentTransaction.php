@@ -34,11 +34,11 @@ class EloquentTransaction implements TransactionRepository
      * while the wallet balance of the sender is recorded for fund transfer 
      * since the sender is sending from the wallet to the a local bank account
     */ 
-    if($params['transaction_type'] === 'wallet transfer'){
+    // if($params['transaction_type'] === 'wallet transfer'){
       $transaction->balance_after = ($params['balance_before'] + $params['amount']);
-    }elseif($params['transaction_type'] === 'fund transfer'){
-      $transaction->balance_after = ($params['balance_before'] - $params['amount']);
-    }
+    // }elseif($params['transaction_type'] === 'fund transfer'){
+    //   $transaction->balance_after = ($params['balance_before'] - $params['amount']);
+    // }
   
     $transaction->save();
 
