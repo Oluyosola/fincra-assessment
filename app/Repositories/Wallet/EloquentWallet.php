@@ -11,6 +11,6 @@ class EloquentWallet implements WalletRepository
    */
   public function find($user_id)
   {
-    return Wallet::where('user_id', $user_id)->first();
+    return Wallet::where('agent_id', $user_id)->first();
   }
 }

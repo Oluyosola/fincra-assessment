@@ -11,6 +11,7 @@
 
 @section('content')
 <div class="container">
+  @include('partials.messages')
 
     <form action="{{route('agent.add')}}" method= "POST">    
         @csrf

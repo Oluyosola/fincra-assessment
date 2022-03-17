@@ -68,14 +68,15 @@ class FundService
       
       $send_money = $this->paymentService->payoutToIndividual($payment_payload);
 
-      dd(gettype($send_money));
+      // dd(gettype($send_money));
+      dd($send_money);
 
       if(isset($send_money->success) && ($send_money->success === true)){
         $params['status'] = $send_money->data->status;
         $params['payment_reference'] = $send_money->data->payment_reference;
-        $params['customer_payment_reference'] = $send_money->data->custome_payment_reference;
+        $params['customer_payment_reference'] = $send_money->data->customer_payment_reference;
         $params['balance_before'] = $sender_wallet->balance;
-
+// dd($send_money);
         DB::beginTransaction();
         // save transaction details;
         $save_transaction = $this->transactions->save($params, $sender_id);

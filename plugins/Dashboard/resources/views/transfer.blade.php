@@ -10,6 +10,9 @@
 @stop
 
 @section('content')
+
+@include('partials.messages')
+
 <div class="container">
 
     <form action="{{route('agent.make-transfer')}}" method= "POST">    
@@ -48,9 +51,33 @@
           <label for="exampleInputPassword1">Account Number</label>
           <input type="number" class="form-control" id="name" placeholder="Enter Account Number" name="account_number">
         </div>
+        
         <div class="form-group">
-          <label for="exampleInputPassword1">Bank Name</label>
-          <input type="text" class="form-control" id="name" placeholder="Enter Bank Name" name="bank_name">
+          <label for="exampleInputPassword1">Transaction Type</label>
+          <select name="bank_name" id="" class="form-control">
+              <option value="">Kindly select Bank</option>
+              <option value="Access Bank Plc">Access Bank Plc</option>
+              <option value="Citibank Nigeria">Citibank Nigeria</option>
+              <option value="Ecobank">Ecobank</option>
+              <option value="FCMB">FCMB</option>
+              <option value="Fidelity Bank">Fidelity Bank</option>
+              <option value="First Bank">First Bank</option>
+              <option value="GTB">GTB</option>
+              <option value="Heritage Bank">Heritage Bank</option>
+              <option value="Jaiz Bank">Jaiz Bank</option>
+              <option value="Keystone Bank">Keystone Bank</option>
+              <option value="Kuda Bank">Kuda Bank</option>
+              <option value="Polaris Bank">Polaris Bank</option>
+              <option value="Providus Bank">Providus Bank</option>
+              <option value="Stanbic IBTC">Stanbic IBTC</option>
+              <option value="Standard Chartered">Standard Chartered</option>
+              <option value="Sterling Bank">Sterling Bank</option>
+              <option value="UBA">UBA</option>
+              <option value="Union Bank">Union Bank</option>
+              <option value="Unity Bank">Unity Bank</option>
+              <option value="Wema Bank">Wema Bank</option>
+              <option value="Zenith Bank">Zenith Bank</option>     
+          </select>
         </div>
       </div>
       

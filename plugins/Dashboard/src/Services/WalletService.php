@@ -26,7 +26,7 @@ class WalletService
       $sender_wallet = $this->wallet->find($sender_id);
       // dd($sender_wallet);
       if($sender_wallet->balance <= $params['amount']){
-        return ['status' => false, 'message' => 'Request failed. Insufficient wallet balance'];
+        return ['status' => false];
       }
 
       /**

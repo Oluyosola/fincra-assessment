@@ -21,44 +21,15 @@
                 <div class="col-md-4 mt-md-0 mt-2">
                     <div class="input-group custom-search-form">
                         <h3>Agents Table</h3>
-                        {{-- <input type="text"
-                               class="form-control input-solid"
-                               name="search"
-                               value="{{ Request::get('search') }}"
-                               placeholder="@lang('Search for Agents...')">
-
-                            <span class="input-group-append">
-                                @if (Request::has('search') && Request::get('search') != '')
-                                    <a href="{{ route('agent.index') }}"
-                                           class="btn btn-light d-flex align-items-center text-muted"
-                                           role="button">
-                                        <i class="fas fa-times"></i>
-                                    </a>
-                                @endif
-                                <button class="btn btn-light" type="submit" id="search-users-btn">
-                                    <i class="fas fa-search text-muted"></i>
-                                </button>
-                            </span> --}}
+                        
                     </div>
                 </div>
 
                 <div class="col-md-2 mt-2 mt-md-0">
-                    {{-- {!!
-                        Form::select(
-                            'status',
-                            $statuses,
-                            Request::get('status'),
-                            ['id' => 'status', 'class' => 'form-control input-solid']
-                        )
-                    !!} --}}
+                    
                 </div>
 
-                {{-- <div class="col-md-6">
-                    <a href="{{ route('agent.create') }}" class="btn btn-primary btn-rounded float-right">
-                        <i class="fas fa-plus mr-2"></i>
-                        @lang('Add Agent')
-                    </a>
-                </div> --}}
+                
             </div>
         </form>
 
@@ -67,6 +38,7 @@
                 <thead>
                 <tr>
                     <th class="min-width-80">@lang('Name')</th>
+                    <th class="min-width-100">@lang('Username')</th>
                     <th class="min-width-100">@lang('Email')</th>
                     <th class="min-width-80">@lang('Phone Number')</th>
                     <th class="min-width-80">@lang('Wallet Balance')</th>
@@ -79,6 +51,11 @@
                             {{-- @include('user.partials.row') --}}
                             <tr>
                             <td>{{$agent->last_name. " ". $agent->first_name}}</td>
+                            @if($agent->username == null)
+                            <td>Nill</td>
+                            @else
+                            <td>{{$agent->username}}</td>
+                            @endif
                             <td>{{$agent->email}}</td>
                             <td>{{$agent->phone}}</td>
                             <td>#{{$agent->wallet->balance}}</td>

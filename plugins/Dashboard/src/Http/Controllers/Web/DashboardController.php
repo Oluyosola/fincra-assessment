@@ -50,7 +50,6 @@ class DashboardController extends Controller
   {
     // please validate the incoming request (for yosola)
 
-    // dd($request->all());
     $sender_id = auth()->user()->id;
     switch($request->transaction_type){
       case "wallet transfer":
@@ -64,19 +63,15 @@ class DashboardController extends Controller
 
     if(isset($data['status']) && $data['status'] == false){
       
-    // return redirect()->back()
-    // ->withSuccess(__($data['message']));
-      // return redirect()->back();
-      dd($data['message']);
+      return back()->with('error', 'Request failed, Insufficient wallet balance');
+
     }
 
-    // you have to return confirm message
 
-    dd('transfer successfull', $data);
+    return redirect()->route('agent.dashboard')->with('success', 'Transfer Successful');
 
 
     
-    return back();
   }
 
 }

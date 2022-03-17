@@ -26,16 +26,6 @@ class AgentController extends Controller
         return view('agent::create');
     }
 
-    // public function add(Request $request)
-    // {
-    //     $agent = New Agent();
-    //     $agent->name = $request->input('name');
-    //     $agent->email = $request->input('email');
-    //     $agent->phone_number = $request->input('phone');
-    //     $agent->password = Hash::make($request->input('password'));
-    //     $agent->save();
-    //     return back();
-    // }
 
     public function fundWallet(User $user){
         return view('agent::wallet', compact('user'));
@@ -45,8 +35,7 @@ class AgentController extends Controller
 
         $user->wallet->balance = $user->wallet->balance + $request->input('wallet');
         $user->wallet->update();
-    
-        return back();
+        return redirect()->route('agent')->with('success', $user->last_name. " ". $user->first_name." ". 'Wallet Funded');
     
     }
 }

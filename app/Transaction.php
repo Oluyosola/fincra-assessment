@@ -9,6 +9,7 @@ class Transaction extends Model
     protected $fillable = [
         'agent_id',
         'transaction_type',
+        'payment_reference',
         'amount',
         'balance_before',
         'balance_after',

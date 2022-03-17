@@ -10,6 +10,8 @@
 @stop
 
 @section('content')
+@include('partials.messages')
+
 <div class="container">
 
     <form action="{{route('agent.fund', $user->id)}}" method= "POST">    

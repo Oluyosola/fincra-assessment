@@ -10,6 +10,7 @@ Transaction
 @stop
 
 @section('content')
+@include('partials.messages')
 
 <div class="table-responsive" id="users-table-wrapper">
     <h3>Transaction History</h3>
