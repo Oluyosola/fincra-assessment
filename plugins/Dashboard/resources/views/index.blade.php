@@ -52,6 +52,9 @@
         </tbody>
     </table>
 </div>
+<div>
+    {{$agent_trans->links()}}
+</div>
   @stop
   @section('content')
 

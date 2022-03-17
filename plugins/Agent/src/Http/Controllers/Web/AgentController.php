@@ -17,7 +17,7 @@ class AgentController extends Controller
     public function index()
     {
         $wallet = Wallet::all();
-        $users = User::where('role_id', 3)->with('wallet')->get();
+        $users = User::where('role_id', 3)->with('wallet')->paginate(10);
         return view('agent::index', compact('users', 'wallet'));
     }
 
@@ -32,6 +32,10 @@ class AgentController extends Controller
 
     }
     public function addFund(Request $request, User $user){
+        $this->validate($request,[
+            'wallet' => 'required',
+            ]);
+    
 
         $user->wallet->balance = $user->wallet->balance + $request->input('wallet');
         $user->wallet->update();

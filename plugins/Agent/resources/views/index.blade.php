@@ -37,6 +37,8 @@
             <table class="table table-borderless table-striped">
                 <thead>
                 <tr>
+                    <th class="min-width-80">@lang('SN')</th>
+
                     <th class="min-width-80">@lang('Name')</th>
                     <th class="min-width-100">@lang('Username')</th>
                     <th class="min-width-100">@lang('Email')</th>
@@ -50,6 +52,7 @@
                         @foreach ($users as $agent)
                             {{-- @include('user.partials.row') --}}
                             <tr>
+                            <td>{{$loop->iteration}}</td>
                             <td>{{$agent->last_name. " ". $agent->first_name}}</td>
                             @if($agent->username == null)
                             <td>Nill</td>
@@ -58,7 +61,7 @@
                             @endif
                             <td>{{$agent->email}}</td>
                             <td>{{$agent->phone}}</td>
-                            <td>#{{$agent->wallet->balance}}</td>
+                            <td>{{$agent->wallet->balance}}</td>
                             <td class="text-center align-middle">
                                 <div class="dropdown show d-inline-block">
                                     <a class="btn btn-icon"
@@ -86,7 +89,10 @@
 </div>
 
 {{-- {!! $users->render() !!} --}}
+<div>
+    {{$users->links()}}
 
+</div>
 @stop
 
 @section('scripts')
@@ -95,4 +101,5 @@
             $("#agent-form").submit();
         });
     </script>
+    
 @stop

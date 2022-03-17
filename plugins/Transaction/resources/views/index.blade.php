@@ -49,7 +49,7 @@ Transaction
         </tbody>
     </table>
 </div>
-<div class="text-center">
+<div>
 {{ $transaction->links() }}
 </div>
 
