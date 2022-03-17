@@ -18,7 +18,7 @@
     
     <div class="form-group">
         <label for="exampleInputPassword1">Fund Wallet</label>
-        <input type="number" class="form-control" id="name" placeholder="Enter Amount" name="wallet">
+        <input type="number" class="form-control" id="name" placeholder="Enter Amount in Naira" name="wallet">
       </div>
       
     

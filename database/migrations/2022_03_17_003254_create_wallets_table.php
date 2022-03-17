@@ -13,12 +13,13 @@ class CreateWalletsTable extends Migration
      */
     public function up()
     {
-        Schema::create('wallets', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->integer('agent_id')->nullable();
-            $table->decimal('wallet_balance', 5,2)->default(0);
-            $table->timestamps();
-        });
+      Schema::create('wallets', function (Blueprint $table) {
+        $table->bigIncrements('id');
+        $table->decimal('balance')->default(0.00);
+        $table->unsignedBigInteger('agent_id');
+        // $table->foreign('user_id')->references('id')->on('agents')->onDelete('cascade');
+        $table->timestamps();
+      });
     }
 
     /**

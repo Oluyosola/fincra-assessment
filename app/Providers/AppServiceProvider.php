@@ -13,6 +13,12 @@ use Vanguard\Repositories\Session\DbSession;
 use Vanguard\Repositories\Session\SessionRepository;
 use Vanguard\Repositories\User\EloquentUser;
 use Vanguard\Repositories\User\UserRepository;
+use Vanguard\Repositories\Agent\EloquentAgent;
+use Vanguard\Repositories\Agent\AgentRepository;
+use Vanguard\Repositories\Transaction\EloquentTransaction;
+use Vanguard\Repositories\Transaction\TransactionRepository;
+use Vanguard\Repositories\Wallet\EloquentWallet;
+use Vanguard\Repositories\Wallet\WalletRepository;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -41,7 +47,10 @@ class AppServiceProvider extends ServiceProvider
         $this->app->singleton(PermissionRepository::class, EloquentPermission::class);
         $this->app->singleton(SessionRepository::class, DbSession::class);
         $this->app->singleton(CountryRepository::class, EloquentCountry::class);
-
+        $this->app->singleton(AgentRepository::class, EloquentAgent::class);
+        $this->app->singleton(TransactionRepository::class, EloquentTransaction::class);
+        $this->app->singleton(WalletRepository::class, EloquentWallet::class);
+        
         if ($this->app->environment('local')) {
             $this->app->register(\Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class);
             $this->app->register(\Barryvdh\Debugbar\ServiceProvider::class);

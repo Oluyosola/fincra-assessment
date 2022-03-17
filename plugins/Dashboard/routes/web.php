@@ -9,7 +9,7 @@
 | Now create something great!
 |
 */
-Route::group(['prefix' => 'dashboard', 'middleware' => 'permission:agent.dashboard'], function () {
+Route::group(['prefix' => 'dashboard'], function () {
 
     Route::get('/', 'DashboardController@index')->middleware('auth')->name('agent.dashboard');
     Route::get('/transfer', 'DashboardController@transfer')->name('agent.transfer');

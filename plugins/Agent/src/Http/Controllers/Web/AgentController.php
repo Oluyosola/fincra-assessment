@@ -43,7 +43,7 @@ class AgentController extends Controller
     }
     public function addFund(Request $request, User $user){
 
-        $user->wallet->wallet_balance = $user->wallet->wallet_balance + $request->input('wallet');
+        $user->wallet->balance = $user->wallet->balance + $request->input('wallet');
         $user->wallet->update();
     
         return back();

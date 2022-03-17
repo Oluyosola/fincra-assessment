@@ -15,7 +15,7 @@
         <div class="card-body" >
             <h5 class="text-muted">Wallet Balance</h5>
             <div class="metric-value d-inline-block">
-                <h1 class="mb-1">{{$agent->wallet_balance}}</h1>
+                <h1 class="mb-1">{{$agent->wallet->balance}}</h1>
             </div>
         </div>
         <div id="sparkline-revenue2"></div>

@@ -20,7 +20,8 @@
             <div class="row my-3 flex-md-row flex-column-reverse">
                 <div class="col-md-4 mt-md-0 mt-2">
                     <div class="input-group custom-search-form">
-                        <input type="text"
+                        <h3>Agents Table</h3>
+                        {{-- <input type="text"
                                class="form-control input-solid"
                                name="search"
                                value="{{ Request::get('search') }}"
@@ -37,7 +38,7 @@
                                 <button class="btn btn-light" type="submit" id="search-users-btn">
                                     <i class="fas fa-search text-muted"></i>
                                 </button>
-                            </span>
+                            </span> --}}
                     </div>
                 </div>
 
@@ -52,12 +53,12 @@
                     !!} --}}
                 </div>
 
-                <div class="col-md-6">
+                {{-- <div class="col-md-6">
                     <a href="{{ route('agent.create') }}" class="btn btn-primary btn-rounded float-right">
                         <i class="fas fa-plus mr-2"></i>
                         @lang('Add Agent')
                     </a>
-                </div>
+                </div> --}}
             </div>
         </form>
 
@@ -80,7 +81,7 @@
                             <td>{{$agent->last_name. " ". $agent->first_name}}</td>
                             <td>{{$agent->email}}</td>
                             <td>{{$agent->phone}}</td>
-                            <td>{{$agent->wallet->wallet_balance}}</td>
+                            <td>#{{$agent->wallet->balance}}</td>
                             <td class="text-center align-middle">
                                 <div class="dropdown show d-inline-block">
                                     <a class="btn btn-icon"
