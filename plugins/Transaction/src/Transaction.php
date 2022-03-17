@@ -17,7 +17,7 @@ class Transaction extends Plugin
     {
         return Item::create(__('Transaction'))
         ->route('transaction')
-        ->icon('fas fa-user')
+        ->icon('fas fa-user')->permissions('admin.view')
         ->active("transaction*");    
 
     }

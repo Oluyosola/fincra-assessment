@@ -28,7 +28,6 @@
         <i class="fas fa-plus mr-2"></i>
         @lang('Make Transfer')
     </a>
-    </div>
 </div>
 <div class="table-responsive" id="users-table-wrapper">
     <h3>Transaction History</h3>
@@ -36,14 +35,23 @@
         <thead>
         <tr>
             <th class="min-width-80">@lang('SN')</th>
+            <th class="min-width-80">@lang('Agent')</th>
             <th class="min-width-80">@lang('Transaction Type')</th>
-            <th class="min-width-100">@lang('Amount')</th>
-            <th class="min-width-100">@lang('Balance Before')</th>
-            <th class="min-width-80">@lang('Balance After')</th>
             <th class="min-width-80">@lang(' Status')</th>
         </tr>
         </thead>
         <tbody>
+            @foreach($agent_trans as $agent_tran)
+            <tr>
+                <td>{{$loop->iteration}}</td>
+                <td>{{$agent_tran->agent->last_name. " " . $agent_tran->agent->first_name}}</td>
+                <td>{{$agent_tran->transaction_type}}</td>
+                <td>{{$agent_tran->status}}</td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
+</div>
   @stop
   @section('content')
 

@@ -1,7 +1,7 @@
 <?php
 
 namespace Vanguard\Transaction\Http\Controllers\Web;
-use Vanguard\Agent;
+use Vanguard\User;
 use Vanguard\Transaction;
 
 use Vanguard\Http\Controllers\Controller;
@@ -15,8 +15,8 @@ class TransactionController extends Controller
      */
     public function index()
     {
-        $agent = Agent::where('id', auth()->user()->id);
-        $transaction = Transaction::all();
-        return view('transaction::index', compact('agent','transaction'));
+        // $agent = User::where('role_1d', 3)->get();
+        $transaction = Transaction::with(['sender', 'agent'])->paginate(10);
+        return view('transaction::index', compact('transaction'));
     }
 }

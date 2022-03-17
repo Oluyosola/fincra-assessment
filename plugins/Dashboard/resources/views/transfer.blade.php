@@ -80,12 +80,6 @@
           </select>
         </div>
       </div>
-      
-      
-      {{-- @if(Auth::user()->id == $agent->id)
-      <input type="hidden" name=balance_before value="{{$agent->wallet_balance}}">
-      @endif --}}
-    
     <button type="submit" class="btn btn-primary">Fund Wallet</button>
   </form>
 

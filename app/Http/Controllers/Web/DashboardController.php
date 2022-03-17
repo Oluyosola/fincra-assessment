@@ -23,7 +23,7 @@ class DashboardController extends Controller
 
         return view('dashboard.index');
         }else{
-            return redirect()->route('agent');
+            return redirect()->route('agent.dashboard');
     }
 }
 }

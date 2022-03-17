@@ -31,7 +31,7 @@ class FundService
       $sender_wallet = $this->wallet->find($sender_id);
 
       if($sender_wallet->balance <= $params['amount']){
-        return ['status' => false, 'message' => 'Request failed. Insufficient wallet balance'];
+        return ['status' => false, 'message'];
       }
 
       /**
@@ -73,10 +73,10 @@ class FundService
 
       if(isset($send_money->success) && ($send_money->success === true)){
         $params['status'] = $send_money->data->status;
-        $params['payment_reference'] = $send_money->data->payment_reference;
-        $params['customer_payment_reference'] = $send_money->data->customer_payment_reference;
+        $params['payment_reference'] = $send_money->data->reference;
+        $params['customer_payment_reference'] = $send_money->data->customerReference;
         $params['balance_before'] = $sender_wallet->balance;
-// dd($send_money);
+dd($send_money);
         DB::beginTransaction();
         // save transaction details;
         $save_transaction = $this->transactions->save($params, $sender_id);

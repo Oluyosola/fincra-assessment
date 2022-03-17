@@ -17,4 +17,13 @@ class Transaction extends Model
         'account_number',
         'agent_name'
     ];
+    public function sender()
+    {
+        return $this->belongsTo(User::class, 'sender_id');
+    }
+
+    public function agent()
+    {
+        return $this->belongsTo(User::class, 'agent_id');
+    }
 }

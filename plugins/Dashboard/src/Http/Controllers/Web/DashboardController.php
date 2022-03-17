@@ -3,6 +3,7 @@
 namespace Vanguard\Dashboard\Http\Controllers\Web;
 
 use Vanguard\Agent;
+use Vanguard\Transaction;
 use Illuminate\Http\Request;
 use Vanguard\Dashboard\Services\WalletService;
 use Vanguard\Dashboard\Services\FundService;
@@ -37,8 +38,8 @@ class DashboardController extends Controller
   {
     $agent = $this->agent->find(auth()->user()->id);
     $transaction = $this->transactions->all();
-    
-    return view('dashboard::index', compact('agent','transaction'));
+    $agent_trans = Transaction::where('sender_id', auth()->user()->id)->with(['sender', 'agent'])->paginate(10);
+    return view('dashboard::index', compact('agent', 'transaction', 'agent_trans'));
   }
 
   public function transfer(){

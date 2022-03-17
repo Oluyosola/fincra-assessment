@@ -135,4 +135,13 @@ class User extends Authenticatable implements TwoFactorAuthenticatableContract, 
     {
         return $this->hasOne(Wallet::class, 'agent_id');
     }
+    public function senderTransactions()
+    {
+        return $this->hasMany(Transaction::class);
+    }
+
+    public function agentTransaction()
+    {
+        return $this->hasMany(Transaction::class);
+    }
 }
