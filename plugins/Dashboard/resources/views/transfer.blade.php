@@ -63,7 +63,7 @@
         </div>
         
         <div class="form-group">
-          <label for="exampleInputPassword1">Transaction Type</label>
+          <label for="exampleInputPassword1">Agent's Bank</label>
           <select name="bank_name" id="" class="form-control">
               <option value="">Kindly select Bank</option>
               <option value="Access Bank Plc">Access Bank Plc</option>

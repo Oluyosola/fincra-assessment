@@ -64,6 +64,23 @@ class PermissionsSeeder extends Seeder
             'removable' => false
         ]);
 
+        $permissions[] = Permission::create([
+            'name' => 'admin.view',
+            'display_name' => 'Admin sidebars',
+            'description' => 'Can view Admin related sidebars',
+            'removable' => false
+        ]);
+
         $adminRole->attachPermissions($permissions);
+    
+
+        $permissions[] = Permission::create([
+            'name' => 'agent.dashboard',
+            'display_name' => 'Agent Dashboard',
+            'description' => 'Only Agent can view this',
+            'removable' => false
+        ]);
+
+
     }
 }

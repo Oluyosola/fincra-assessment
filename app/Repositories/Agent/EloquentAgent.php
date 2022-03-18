@@ -3,6 +3,8 @@
 namespace Vanguard\Repositories\Agent;
 
 use Vanguard\User;
+use Vanguard\Role;
+
 
 class EloquentAgent implements AgentRepository
 {
@@ -11,7 +13,9 @@ class EloquentAgent implements AgentRepository
      */
     public function all()
     {
-        return User::where('role_id', 3)->get();
+      $agent = Role::where('name', 'Agent')->first();
+
+        return User::where('role_id', $agent->id)->get();
     }
 
     /**

@@ -29,6 +29,7 @@
         @lang('Make Transfer')
     </a>
 </div>
+
 <div class="table-responsive" id="users-table-wrapper">
     <h3>Transaction History</h3>
     <table class="table table-borderless table-striped">
@@ -36,6 +37,7 @@
         <tr>
             <th class="min-width-80">@lang('SN')</th>
             <th class="min-width-80">@lang('Agent')</th>
+            <th class="min-width-80">@lang('Amount')</th>
             <th class="min-width-80">@lang('Transaction Type')</th>
             <th class="min-width-80">@lang(' Status')</th>
         </tr>
@@ -45,6 +47,7 @@
             <tr>
                 <td>{{$loop->iteration}}</td>
                 <td>{{$agent_tran->agent->last_name. " " . $agent_tran->agent->first_name}}</td>
+                <td>{{$agent_tran->amount}}</td>
                 <td>{{$agent_tran->transaction_type}}</td>
                 <td>{{$agent_tran->status}}</td>
             </tr>

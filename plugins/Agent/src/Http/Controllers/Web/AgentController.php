@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use Vanguard\Wallet;
 use Vanguard\User;
+use Vanguard\Role;
 use Vanguard\Http\Controllers\Controller;
 
 class AgentController extends Controller
@@ -17,7 +18,9 @@ class AgentController extends Controller
     public function index()
     {
         $wallet = Wallet::all();
-        $users = User::where('role_id', 3)->with('wallet')->paginate(10);
+        $agent = Role::where('name', 'Agent')->first();
+
+        $users = User::where('role_id', $agent->id)->with('wallet')->paginate(10);
         return view('agent::index', compact('users', 'wallet'));
     }
 

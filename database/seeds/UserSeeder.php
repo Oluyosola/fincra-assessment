@@ -12,11 +12,15 @@ class UserSeeder extends Seeder
      *
      * @return void
      */
+
+
     public function run()
     {
         $admin = Role::where('name', 'Admin')->first();
+        $agent = Role::where('name', 'Agent')->first();
 
         User::create([
+            
             'first_name' => 'Vanguard',
             'email' => 'admin@example.com',
             'username' => 'admin',
@@ -27,5 +31,20 @@ class UserSeeder extends Seeder
             'status' => UserStatus::ACTIVE,
             'email_verified_at' => now(),
         ]);
+
+        User::create([
+
+            'first_name' => 'Agent',
+            'email' => 'agent@example.com',
+            'username' => 'agent',
+            'password' => 'agent123',
+            'avatar' => null,
+            'country_id' => null,
+            'role_id' => $agent->id,
+            'status' => UserStatus::ACTIVE,
+            'email_verified_at' => now(),
+            
+        ]);
+
     }
 }

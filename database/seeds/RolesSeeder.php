@@ -19,10 +19,17 @@ class RolesSeeder extends Seeder
             'removable' => false
         ]);
 
+        // Role::create([
+        //     'name' => 'User',
+        //     'display_name' => 'User',
+        //     'description' => 'Default system user.',
+        //     'removable' => false
+        // ]);
+
         Role::create([
-            'name' => 'User',
-            'display_name' => 'User',
-            'description' => 'Default system user.',
+            'name' => 'Agent',
+            'display_name' => 'Agent',
+            'description' => 'Default system Agent.',
             'removable' => false
         ]);
     }

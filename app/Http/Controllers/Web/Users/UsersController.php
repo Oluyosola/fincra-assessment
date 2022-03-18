@@ -15,6 +15,7 @@ use Vanguard\Repositories\User\UserRepository;
 use Vanguard\Support\Enum\UserStatus;
 use Vanguard\User;
 use Vanguard\Wallet;
+use Vanguard\Role;
 
 
 /**
@@ -117,8 +118,9 @@ class UsersController extends Controller
         }
 
         $new_user = $this->users->create($data);
+        $agent = Role::where('name', 'Agent')->first();
 
-        if (data_get($data, 'role_id') == 3) {
+        if (data_get($data, 'role_id') == $agent->id) {
             $wallet = new Wallet();
             $wallet->agent_id = $new_user->id;
             $wallet->save();

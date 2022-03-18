@@ -49,6 +49,24 @@ class DashboardController extends Controller
 
   public function makeTransfer(Request $request, Agent $agent)
   {
+    if($request->transaction_type == 'wallet transfer'){
+
+    $this->validate($request,[
+      'transaction_type' => 'required',
+      'agent_data' => 'required',
+      'amount' => 'required',
+
+      ]);
+    }else{
+      $this->validate($request,[
+        'transaction_type' => 'required',
+        'agent_data' => 'required',
+        'amount' => 'required',
+        'account_number' => 'required',
+        'bank_name' => 'required',
+
+        ]);
+    }
     $sender_id = auth()->user()->id;
     switch($request->transaction_type){
       case "wallet transfer":
